@@ -1,0 +1,38 @@
+on: [push]
+
+jobs:
+  test-action:
+    runs-on: ubuntu-latest
+    name: Test action
+
+    steps:
+    
+    - name: Initial a kube config file.
+      run: |
+        touch "${GITHUB_WORKSPACE}"/kind-kube.config
+
+    - name: Create a cluster
+      id: kind-env
+      uses: rockyhmchen/gh-actions-kind-env@master
+      with:
+        kind-version: "v0.5.1"
+        kubeconfig-file: "kind-kube.config"
+
+    - name: Verify results
+      run: |
+        echo "-------docker ps -a----------------"
+        docker ps -a
+
+        echo "-------kind version----------------"
+        "${GITHUB_WORKSPACE}"/kind version
+
+        export KUBECONFIG="${GITHUB_WORKSPACE}"/kind-kube.config
+
+        echo "-------kubectl config view----------------"
+        kubectl config view
+
+        echo "-------kubectl config current-context----------------"
+        kubectl config current-context
+
+        echo "-------kubectl get nodes----------------"
+        kubectl get nodes -o wide
