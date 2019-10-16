@@ -9,12 +9,6 @@ inputs:
     description: 'kind version'
     required: true
     default: 'v0.5.1'
-  kubeconfig-file:
-    description: 'KUBECONFIG file'
-    required: true
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
-  args:
-    - ${{ inputs.kind-version }}
-    - ${{ inputs.kubeconfig-file }}
+  using: 'node12'
+  main: 'lib/setup-kind.js'
