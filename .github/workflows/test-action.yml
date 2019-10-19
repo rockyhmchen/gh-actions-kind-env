@@ -8,7 +8,7 @@ jobs:
 
     steps:
 
-    - name: Set kind
+    - name: Setup kind and create cluster
       uses: rockyhmchen/gh-actions-kind-env@js-ver
       with:
         kind-version: "v0.5.1"
