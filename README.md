@@ -12,7 +12,7 @@ This action is to create a Kubernetes environment for test using [kind](https://
 
 ```
     - name: Setup kind and create cluster
-      uses: rockyhmchen/gh-actions-kind-env@js-ver
+      uses: rockyhmchen/gh-actions-kind-env@master
       with:
         kind-version: "v0.5.1"
 ```
