@@ -1,0 +1,31 @@
+name: Test action
+on: [push]
+
+jobs:
+  test-action:
+    name: Run
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Setup kind and create cluster
+      uses: rockyhmchen/gh-actions-kind-env@js-ver
+      with:
+        kind-version: "v0.5.1"
+
+    - name: Verify results
+      run: |
+        echo "-------kind version----------------"
+        kind version
+
+        echo "-------kubectl config view----------------"
+        kubectl config view
+
+        echo "-------kubectl config current-context----------------"
+        kubectl config current-context
+
+        echo "-------kubectl create ns itest---------------"
+        kubectl create ns itest
+
+        echo "-------kubectl get ns---------------"
+        kubectl get ns
