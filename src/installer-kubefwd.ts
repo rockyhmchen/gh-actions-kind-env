@@ -18,8 +18,6 @@ export async function getKubefwd(version: string): Promise<string> {
     core.debug('Kubefwd tool is cached under ' + toolPath);
   }
 
-  // toolPath = path.join(toolPath, 'bin');
-  core.debug('@@@@@ toolPath: ' + toolPath);
   core.addPath(toolPath);
 
   return toolPath;
@@ -49,13 +47,11 @@ async function acquireKubefwd(version: string): Promise<string> {
   } else {
     extPath = await tc.extractTar(downloadPath);
   }
-  core.debug('@@@@@ extPath1: ' + extPath);
 
   //
   // Install into the local tool cache - node extracts with a root folder that matches the fileName downloaded
   //
   const toolRoot = extPath;
-  core.debug('@@@@@ toolRoot: ' + toolRoot);
   return await tc.cacheDir(toolRoot, 'kubefwd', version);
 }
 
