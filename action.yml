@@ -19,4 +19,4 @@ inputs:
     default: 'v0.1.0'
 runs:
   using: 'node12'
-  main: 'lib/setup-kind.js'
+  main: 'lib/setup.js'
