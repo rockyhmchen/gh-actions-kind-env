@@ -27,5 +27,5 @@ This action is to
       with:
         kind-version: "v0.5.1"
         kubefwd-version: "v1.9.2"
-        bepatient-version: "v1.9.2"
+        bepatient-version: "v0.1.0"
 ```
