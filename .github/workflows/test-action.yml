@@ -8,10 +8,12 @@ jobs:
 
     steps:
 
-    - name: Setup kind and create cluster
-      uses: rockyhmchen/gh-actions-kind-env@js-ver
+    - name: Create cluster
+      uses: rockyhmchen/gh-actions-kind-env@master
       with:
         kind-version: "v0.5.1"
+        kubefwd-version: "v1.9.2"
+        bepatient-version: "v1.9.2"
 
     - name: Verify results
       run: |
@@ -29,3 +31,9 @@ jobs:
 
         echo "-------kubectl get ns---------------"
         kubectl get ns
+
+        echo "-------kubefwd version----------------"
+        kubefwd version
+
+        echo "-------bepatient version----------------"
+        bepatient version

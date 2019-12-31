@@ -9,6 +9,14 @@ inputs:
     description: 'kind version'
     required: true
     default: 'v0.5.1'
+  kubefwd-version':
+    description: 'kubefwd version'
+    required: true
+    default: 'v1.9.2'
+  bepatient-version':
+    description: 'bepatient version'
+    required: true
+    default: 'v0.1.0'
 runs:
   using: 'node12'
   main: 'lib/setup-kind.js'
